@@ -13,9 +13,17 @@
   --radius-xl: 24px;
 }
 
-@utility rounded-0 { border-radius: 0 }
-@utility rounded-pill { border-radius: 9999px }
-@utility rounded-shaped { border-radius: 24px 0 }
+@utility rounded-0 {
+  border-radius: 0
+}
+
+@utility rounded-pill {
+  border-radius: 9999px
+}
+
+@utility rounded-shaped {
+  border-radius: 24px 0
+}
 
 @source inline('rounded-0');
 @source inline('rounded-sm');
