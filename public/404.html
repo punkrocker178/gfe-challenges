@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Store the full URL in sessionStorage, then redirect to root
+    sessionStorage.setItem('redirect', location.href);
+    location.replace('/gfe-challenges/');  // Use your base URL if deploying to a sub-path: '/repo-name/'
+  </script>
+</head>
+
+<body></body>
+
+</html>
