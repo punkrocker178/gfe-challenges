@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import ProductCard from '@/components/ProductCard.vue';
+import AppBtn from '@/components/ui/AppBtn.vue';
 import type { Product } from '@/models/Product.model';
-import { VCard, VCardTitle, VCardText, VIcon } from 'vuetify/components';
+import { ref } from 'vue';
 
 const products: Product[] = [
   {
@@ -20,6 +21,7 @@ const products: Product[] = [
     description: 'Next-level Integrations, priced economically',
     monthlyPrice: 19.99,
     annualPrice: 15.99,
+    isPopularChoice: true,
     sellingPoints: [
       'Expanded library with more diverse abstract images',
       'High-resolution images available',
@@ -43,13 +45,31 @@ const products: Product[] = [
     ],
   },
 ];
+
+const selectedBillingCycle = ref<'monthly' | 'annually'>('monthly');
+
+function selectCycle(cycle: 'monthly' | 'annually') {
+  selectedBillingCycle.value = cycle;
+}
 </script>
 
 <template>
-
-  <div class="flex flex-col columns-3 md:flex-row gap-8 p-4 md:p-8 justify-center">
+  <div class="mx-auto text-center mt-8">
+    <div class="text-indigo-700 font-semibold mb-2">Pricing tiers</div>
+    <h1 class="text-5xl font-semibold mt-0 mb-4">Fit for all your needs</h1>
+    <p class="text-xl text-neutral-600">Pick the plan that suits you today and step up as your demands grow - our
+      flexible options have your journey
+      mapped out.</p>
+  </div>
+  <div class="flex flex-row justify-center mt-10">
+    <app-btn theme="secondary" :classes="'mr-8 ' + (selectedBillingCycle === 'monthly' ? 'shadow-sm' : '!border-0')"
+      @click="selectCycle('monthly')">Monthly</app-btn>
+    <app-btn theme="secondary" :classes="selectedBillingCycle === 'annually' ? 'shadow-sm' : '!border-0'"
+      @click="selectCycle('annually')">Annually</app-btn>
+  </div>
+  <div class="flex flex-col lg:flex-row gap-8 p-4 md:p-8 justify-center">
     <template v-for="product of products" :key="product.planName">
-      <product-card :product="product"></product-card>
+      <product-card :product="product" :selected-billing-cycle="selectedBillingCycle"></product-card>
     </template>
   </div>
 </template>

@@ -4,4 +4,5 @@ export interface Product {
   monthlyPrice: number;
   annualPrice: number;
   sellingPoints: string[];
+  isPopularChoice?: boolean;
 }
