@@ -78,7 +78,3 @@ npm run build
 ## 🙌 Community
 
 Join our [Discord server](https://www.greatfrontend.com/community) and get support from our community ranging from new developers to senior engineers from big tech companies!
-
-## Getting started
-
-### Overview
