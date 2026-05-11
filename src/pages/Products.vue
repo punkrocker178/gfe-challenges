@@ -1,19 +1,14 @@
 <script setup lang="ts">
-import { VCard, VCardTitle, VCardText, VCardActions } from 'vuetify/components';
-interface Product {
-  planName: string;
-  description: string;
-  monthlyPrice: number;
-  annualPrice: number;
-  sellingPoints: string[];
-}
+import ProductCard from '@/components/ProductCard.vue';
+import type { Product } from '@/models/Product.model';
+import { VCard, VCardTitle, VCardText, VIcon } from 'vuetify/components';
 
 const products: Product[] = [
   {
     planName: 'Basic Plan',
     description: 'Access to a curated selection of abstract images',
-    monthlyPrice: 10,
-    annualPrice: 100,
+    monthlyPrice: 9.99,
+    annualPrice: 6.99,
     sellingPoints: [
       'Standard quality images',
       'Limited to personal use',
@@ -23,8 +18,8 @@ const products: Product[] = [
   {
     planName: 'Standard Plan',
     description: 'Next-level Integrations, priced economically',
-    monthlyPrice: 30,
-    annualPrice: 300,
+    monthlyPrice: 19.99,
+    annualPrice: 15.99,
     sellingPoints: [
       'Expanded library with more diverse abstract images',
       'High-resolution images available',
@@ -36,8 +31,8 @@ const products: Product[] = [
   {
     planName: 'Premium Plan',
     description: 'Experience limitless living for power users',
-    monthlyPrice: 100,
-    annualPrice: 1000,
+    monthlyPrice: 29.99,
+    annualPrice: 25.99,
     sellingPoints: [
       'Full access to the entire image library, including exclusive content',
       'Highest quality images, including premium collections',
@@ -51,20 +46,11 @@ const products: Product[] = [
 </script>
 
 <template>
-  <div>
-    <h1>Welcome to the Products Page</h1>
-  </div>
 
-  <div class="flex flex-col md:flex-row gap-8">
+  <div class="flex flex-col columns-3 md:flex-row gap-8 p-4 md:p-8 justify-center">
     <template v-for="product of products" :key="product.planName">
-      <v-card>
-        <v-card-title>{{ product.planName }}</v-card-title>
-        <v-card-text>{{ product.description }}</v-card-text>
-        <v-card-actions>
-          <span>Monthly: ${{ product.monthlyPrice }}</span>
-          <span>Annual: ${{ product.annualPrice }}</span>
-        </v-card-actions>
-      </v-card>
+      <product-card :product="product"></product-card>
     </template>
   </div>
 </template>
+<style scoped></style>
