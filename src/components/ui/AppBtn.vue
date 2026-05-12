@@ -25,6 +25,7 @@ const buttonClasses = computed(() => {
 </template>
 <style lang="scss" scoped>
 .app-btn {
+  min-width: 9rem;
   padding: 0.75rem 1.25rem;
   border-radius: 0.25rem;
   font-weight: 500;

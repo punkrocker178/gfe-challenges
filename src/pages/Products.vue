@@ -54,10 +54,11 @@ function selectCycle(cycle: 'monthly' | 'annually') {
 </script>
 
 <template>
-  <div class="mx-auto text-center mt-8">
+  <div class="mx-auto text-center mt-16 md:mt-20">
     <div class="text-indigo-700 font-semibold mb-2">Pricing tiers</div>
-    <h1 class="text-5xl font-semibold mt-0 mb-4">Fit for all your needs</h1>
-    <p class="text-xl text-neutral-600">Pick the plan that suits you today and step up as your demands grow - our
+    <h1 class="text-3xl md:text-5xl font-semibold mt-0 mb-4">Fit for all your needs</h1>
+    <p class="text-lg md:text-xl text-neutral-600">Pick the plan that suits you today and step up as your demands grow -
+      our
       flexible options have your journey
       mapped out.</p>
   </div>
@@ -67,7 +68,7 @@ function selectCycle(cycle: 'monthly' | 'annually') {
     <app-btn theme="secondary" :classes="selectedBillingCycle === 'annually' ? 'shadow-sm' : '!border-0'"
       @click="selectCycle('annually')">Annually</app-btn>
   </div>
-  <div class="flex flex-col lg:flex-row gap-8 p-4 md:p-8 justify-center">
+  <div class="flex flex-col lg:flex-row gap-8 mt-8 p-3 md:p-8 justify-center">
     <template v-for="product of products" :key="product.planName">
       <product-card :product="product" :selected-billing-cycle="selectedBillingCycle"></product-card>
     </template>
