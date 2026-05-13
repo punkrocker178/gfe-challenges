@@ -49,7 +49,7 @@ const popularSectionPositionClasses = '-mx-4 md:-mx-8 -mt-4 md:-mt-8 py-4 px-4 m
       <p v-else class="mb-0">Billed monthly</p>
     </div>
     <div class="product__features flex-initial">
-      <ul>
+      <ul class="flex flex-col gap-5">
         <li v-for="point of props.product.sellingPoints" :key="point">
           <v-icon class="mr-2 text-indigo-600">mdi-check</v-icon>
           <span class="text-base">{{ point }}</span>
